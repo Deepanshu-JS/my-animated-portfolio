@@ -1,5 +1,6 @@
 import React from 'react';
 import { Instagram, Twitter, Linkedin, Github, Dribbble, Youtube } from 'lucide-react';
+import MagneticWrapper from './MagneticWrapper';
 
 interface SocialLinksProps {
   variant?: 'horizontal' | 'vertical';
@@ -36,33 +37,34 @@ const SocialLinks: React.FC<SocialLinksProps> = ({
   return (
     <div className={`flex gap-3 ${variant === 'vertical' ? 'flex-col' : 'flex-row flex-wrap'}`}>
       {socialLinks.map((social, index) => (
-        <a
-          key={social.name}
-          href={social.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`
-            ${sizeClasses[size]} rounded-full
-            bg-muted/50 border border-border/50
-            flex items-center justify-center gap-2
-            text-muted-foreground ${social.color}
-            transition-all duration-300 ease-out
-            hover:scale-110 hover:border-primary/50 hover:bg-muted
-            hover:shadow-lg hover:shadow-primary/10
-            group
-            ${showLabels ? 'px-4 w-auto' : ''}
-          `}
-          style={{ 
-            animationDelay: `${index * 100}ms`,
-          }}
-        >
-          <social.icon 
-            className={`${iconSizes[size]} transition-transform duration-300 group-hover:rotate-12`} 
-          />
-          {showLabels && (
-            <span className="font-handwritten text-lg">{social.name}</span>
-          )}
-        </a>
+        <MagneticWrapper key={social.name} strength={0.5} radius={60}>
+          <a
+            href={social.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`
+              ${sizeClasses[size]} rounded-full
+              bg-muted/50 border border-border/50
+              flex items-center justify-center gap-2
+              text-muted-foreground ${social.color}
+              transition-all duration-300 ease-out
+              hover:border-primary/50 hover:bg-muted
+              hover:shadow-lg hover:shadow-primary/10
+              group
+              ${showLabels ? 'px-4 w-auto' : ''}
+            `}
+            style={{ 
+              animationDelay: `${index * 100}ms`,
+            }}
+          >
+            <social.icon 
+              className={`${iconSizes[size]} transition-transform duration-300 group-hover:rotate-12`} 
+            />
+            {showLabels && (
+              <span className="font-handwritten text-lg">{social.name}</span>
+            )}
+          </a>
+        </MagneticWrapper>
       ))}
     </div>
   );

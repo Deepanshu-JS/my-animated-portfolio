@@ -21,7 +21,7 @@ const StickyNote: React.FC<StickyNoteProps> = ({
 }) => {
   return (
     <div
-      className={`relative ${animationClass} ${className}`}
+      className={`relative ${animationClass} ${className} transition-transform duration-300 ease-out hover:-translate-y-3 hover:scale-105 cursor-pointer`}
       style={{ 
         transform: `rotate(${rotation}deg)`,
         animationDelay: delay,

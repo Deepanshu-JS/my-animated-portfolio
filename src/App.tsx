@@ -8,6 +8,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Projects from "./pages/Projects";
 import NotFound from "./pages/NotFound";
+import MagicWand from "./components/MagicWand";
 
 const queryClient = new QueryClient();
 
@@ -16,6 +17,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <MagicWand />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />

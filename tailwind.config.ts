@@ -85,19 +85,16 @@ export default {
           to: { height: "0" },
         },
         "float-slow": {
-          "0%, 100%": { transform: "translateY(0) rotate(0deg)" },
-          "25%": { transform: "translateY(-8px) rotate(1deg)" },
-          "50%": { transform: "translateY(-4px) rotate(-0.5deg)" },
-          "75%": { transform: "translateY(-10px) rotate(0.5deg)" },
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-3px)" },
         },
         "float-medium": {
-          "0%, 100%": { transform: "translateY(0) rotate(0deg)" },
-          "33%": { transform: "translateY(-12px) rotate(-1.5deg)" },
-          "66%": { transform: "translateY(-6px) rotate(1deg)" },
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-4px)" },
         },
         "float-fast": {
-          "0%, 100%": { transform: "translateY(0) rotate(0deg)" },
-          "50%": { transform: "translateY(-15px) rotate(2deg)" },
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-5px)" },
         },
         "sway": {
           "0%, 100%": { transform: "rotate(-2deg)" },
@@ -115,8 +112,8 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "float-slow": "float-slow 8s ease-in-out infinite",
-        "float-medium": "float-medium 6s ease-in-out infinite",
+        "float-slow": "float-slow 6s ease-in-out infinite",
+        "float-medium": "float-medium 5s ease-in-out infinite",
         "float-fast": "float-fast 4s ease-in-out infinite",
         "sway": "sway 5s ease-in-out infinite",
         "pulse-glow": "pulse-glow 3s ease-in-out infinite",

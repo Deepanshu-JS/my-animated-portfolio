@@ -3,6 +3,7 @@ import StickyNote from '@/components/StickyNote';
 import PortfolioTitle from '@/components/PortfolioTitle';
 import ConnectingLines from '@/components/ConnectingLines';
 import ServiceLabel from '@/components/ServiceLabel';
+import Navigation from '@/components/Navigation';
 
 const Index = () => {
   return (
@@ -27,6 +28,9 @@ const Index = () => {
       
       {/* Connecting lines */}
       <ConnectingLines />
+      
+      {/* Navigation */}
+      <Navigation />
       
       {/* Main content */}
       <div className="relative z-10 container mx-auto px-4 py-8 md:py-16 min-h-screen flex flex-col">

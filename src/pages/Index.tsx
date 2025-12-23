@@ -46,7 +46,7 @@ const Index = () => {
           
           <ServiceLabel
             title="JavaScript Development"
-            items={['ES6+', 'TypeScript', 'APIs', 'Node.js', 'Modern Frameworks']}
+            items={['ES6+', 'TypeScript', 'Tailwind CSS', 'APIs', 'Modern Frameworks']}
             position="right"
             className="max-w-xs animate-float-medium"
             

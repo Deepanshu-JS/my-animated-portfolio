@@ -4,6 +4,7 @@ import PortfolioTitle from '@/components/PortfolioTitle';
 import ConnectingLines from '@/components/ConnectingLines';
 import ServiceLabel from '@/components/ServiceLabel';
 import Navigation from '@/components/Navigation';
+import MagicWand from '@/components/MagicWand';
 
 const Index = () => {
   return (
@@ -28,6 +29,9 @@ const Index = () => {
       
       {/* Connecting lines */}
       <ConnectingLines />
+      
+      {/* Magic wand animation */}
+      <MagicWand />
       
       {/* Navigation */}
       <Navigation />

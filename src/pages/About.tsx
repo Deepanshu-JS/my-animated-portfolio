@@ -4,10 +4,10 @@ import StickyNote from '@/components/StickyNote';
 
 const About = () => {
   const skills = [
-    { name: 'Print Design', level: 90 },
-    { name: 'UX/UI Design', level: 85 },
-    { name: 'Communication Design', level: 88 },
-    { name: 'Brand Identity', level: 80 },
+    { name: 'React.js', level: 85 },
+    { name: 'JavaScript / TypeScript', level: 88 },
+    { name: 'Figma to Code', level: 80 },
+    { name: 'CSS / Tailwind', level: 82 },
   ];
 
   return (
@@ -44,17 +44,17 @@ const About = () => {
               About <span className="text-primary animate-pulse-glow inline-block">Me</span>
             </h1>
             <p className="font-handwritten text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8">
-              I'm Trần Đức Đạt, a creative designer with 4 years of experience 
-              crafting beautiful digital and print experiences. My passion lies 
-              in turning complex ideas into simple, elegant solutions.
+              I'm Deepanshu, a passionate React & JavaScript developer with 1-2 years 
+              of experience building modern web applications. I specialize in converting 
+              Figma designs into pixel-perfect, responsive React components.
             </p>
             <div className="flex gap-4">
               <div className="px-6 py-3 bg-primary/10 border border-primary/30 rounded-lg animate-float-slow">
-                <span className="font-marker text-primary text-2xl">4+</span>
+                <span className="font-marker text-primary text-2xl">1-2</span>
                 <span className="font-handwritten text-muted-foreground ml-2">Years Experience</span>
               </div>
               <div className="px-6 py-3 bg-secondary/10 border border-secondary/30 rounded-lg animate-float-medium">
-                <span className="font-marker text-secondary text-2xl">50+</span>
+                <span className="font-marker text-secondary text-2xl">10+</span>
                 <span className="font-handwritten text-muted-foreground ml-2">Projects</span>
               </div>
             </div>
@@ -65,7 +65,7 @@ const About = () => {
                           flex items-center justify-center animate-morph">
               <div className="w-56 h-56 md:w-72 md:h-72 rounded-full bg-muted/50 border-4 border-primary/30
                             flex items-center justify-center">
-                <span className="font-marker text-6xl md:text-8xl text-foreground">TĐĐ</span>
+                <span className="font-marker text-6xl md:text-8xl text-foreground">D</span>
               </div>
             </div>
             {/* Floating decorations */}
@@ -128,10 +128,9 @@ const About = () => {
             <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-accent animate-draw-timeline" />
             
             {[
-              { year: '2020', title: 'Started Journey', desc: 'Began exploring design fundamentals' },
-              { year: '2021', title: 'First Agency', desc: 'Joined a creative studio as junior designer' },
-              { year: '2023', title: 'Senior Designer', desc: 'Led design projects and mentored juniors' },
-              { year: '2024', title: 'Freelance', desc: 'Started independent creative practice' },
+              { year: '2023', title: 'Started Learning', desc: 'Began learning React & JavaScript fundamentals' },
+              { year: '2024', title: 'First Projects', desc: 'Built personal projects and started freelancing' },
+              { year: '2025', title: 'Growing Skills', desc: 'Mastering React ecosystem and Figma to Code workflow' },
             ].map((item, index) => (
               <div 
                 key={item.year}

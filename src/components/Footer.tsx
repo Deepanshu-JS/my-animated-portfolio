@@ -14,10 +14,10 @@ const Footer = () => {
               to="/" 
               className="font-marker text-2xl text-foreground hover:text-primary transition-colors duration-300"
             >
-              TĐĐ
+              Deepanshu
             </Link>
             <p className="font-handwritten text-muted-foreground text-lg mt-2">
-              Creating digital experiences
+              React & JavaScript Developer
             </p>
           </div>
           

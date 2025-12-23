@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 
 interface StickyNoteProps {
   title: string;
@@ -13,6 +13,7 @@ interface StickyNoteStackProps {
   bottomNote: StickyNoteProps;
   className?: string;
   revealDirection?: 'down' | 'up' | 'left' | 'right';
+  parallaxIntensity?: number;
 }
 
 const StickyNoteItem = ({ 
@@ -53,13 +54,45 @@ const StickyNoteItem = ({
   </div>
 );
 
+// Hook for mouse parallax
+const useMouseParallax = (intensity: number = 1) => {
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const springConfig = { damping: 50, stiffness: 100 };
+  const smoothX = useSpring(mouseX, springConfig);
+  const smoothY = useSpring(mouseY, springConfig);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      const { clientX, clientY } = e;
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight / 2;
+      
+      // Normalize to -1 to 1 range
+      const normalizedX = (clientX - centerX) / centerX;
+      const normalizedY = (clientY - centerY) / centerY;
+      
+      mouseX.set(normalizedX * intensity * 15);
+      mouseY.set(normalizedY * intensity * 10);
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, [intensity, mouseX, mouseY]);
+
+  return { x: smoothX, y: smoothY };
+};
+
 const StickyNoteStack = ({ 
   topNote, 
   bottomNote, 
   className = '',
-  revealDirection = 'down'
+  revealDirection = 'down',
+  parallaxIntensity = 1
 }: StickyNoteStackProps) => {
   const [isHovered, setIsHovered] = useState(false);
+  const { x: parallaxX, y: parallaxY } = useMouseParallax(parallaxIntensity);
 
   const getRevealTransform = () => {
     switch (revealDirection) {
@@ -78,19 +111,28 @@ const StickyNoteStack = ({
 
   const revealTransform = getRevealTransform();
 
+  // Different parallax intensities for depth effect
+  const topParallaxX = useTransform(parallaxX, (v) => v * 1.2);
+  const topParallaxY = useTransform(parallaxY, (v) => v * 1.2);
+  const bottomParallaxX = useTransform(parallaxX, (v) => v * 0.6);
+  const bottomParallaxY = useTransform(parallaxY, (v) => v * 0.6);
+
   return (
     <div 
       className={`relative cursor-pointer ${className}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Bottom note - revealed on hover */}
+      {/* Bottom note - revealed on hover with slower parallax */}
       <motion.div
         className="absolute top-0 left-0 z-0"
-        initial={{ x: 0, y: 0, opacity: 0.7, scale: 0.95 }}
+        style={{
+          x: bottomParallaxX,
+          y: bottomParallaxY,
+        }}
         animate={{
-          x: isHovered ? revealTransform.x : 0,
-          y: isHovered ? revealTransform.y : 0,
+          translateX: isHovered ? revealTransform.x : 0,
+          translateY: isHovered ? revealTransform.y : 0,
           opacity: isHovered ? 1 : 0.7,
           scale: isHovered ? 1 : 0.95,
         }}
@@ -103,11 +145,15 @@ const StickyNoteStack = ({
         <StickyNoteItem {...bottomNote} />
       </motion.div>
 
-      {/* Top note */}
+      {/* Top note with faster parallax for depth */}
       <motion.div
         className="relative z-10"
+        style={{
+          x: topParallaxX,
+          y: topParallaxY,
+        }}
         animate={{
-          y: isHovered ? -5 : 0,
+          translateY: isHovered ? -5 : 0,
           scale: isHovered ? 1.02 : 1,
         }}
         transition={{

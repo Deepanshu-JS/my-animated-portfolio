@@ -1,5 +1,6 @@
 import React from 'react';
 import StickyNote from '@/components/StickyNote';
+import StickyNoteStack from '@/components/StickyNoteStack';
 import PortfolioTitle from '@/components/PortfolioTitle';
 import ConnectingLines from '@/components/ConnectingLines';
 import ServiceLabel from '@/components/ServiceLabel';
@@ -56,24 +57,22 @@ const Index = () => {
         {/* Center area with title and sticky notes */}
         <div className="flex-1 flex items-center justify-center relative">
           
-          {/* Left sticky notes */}
-          <div className="absolute left-0 md:left-8 top-[18%] md:top-1/4 z-10">
-            <StickyNote
-              title="React Expert"
-              description="Building modern, performant web applications"
-              pinColor="red"
-              rotation={-5}
-              animationClass=""
-            />
-          </div>
-          
-          <div className="absolute left-6 md:left-16 top-[58%] md:bottom-1/4 z-0 md:z-10">
-            <StickyNote
-              title="JavaScript"
-              description="ES6+, TypeScript, Node.js, APIs"
-              pinColor="red"
-              rotation={3}
-              animationClass=""
+          {/* Left sticky notes stack */}
+          <div className="absolute left-0 md:left-8 top-[25%] md:top-1/4 z-20">
+            <StickyNoteStack
+              topNote={{
+                title: "React Expert",
+                description: "Building modern, performant web applications",
+                pinColor: "red",
+                rotation: -5,
+              }}
+              bottomNote={{
+                title: "JavaScript",
+                description: "ES6+, TypeScript, Node.js, APIs",
+                pinColor: "red",
+                rotation: 3,
+              }}
+              revealDirection="down"
             />
           </div>
           
@@ -82,24 +81,22 @@ const Index = () => {
             <PortfolioTitle />
           </div>
           
-          {/* Right sticky notes */}
+          {/* Right sticky notes stack */}
           <div className="absolute right-0 md:right-8 top-1/3 z-20">
-            <StickyNote
-              title="Deepanshu"
-              description="React & JavaScript Developer"
-              pinColor="red"
-              rotation={4}
-              animationClass=""
-            />
-          </div>
-          
-          <div className="absolute right-4 md:right-16 bottom-1/3 z-20">
-            <StickyNote
-              title="Figma to Code"
-              description="Converting designs to pixel-perfect React components"
-              pinColor="blue"
-              rotation={-3}
-              animationClass=""
+            <StickyNoteStack
+              topNote={{
+                title: "Figma to Code",
+                description: "Converting designs to pixel-perfect React components",
+                pinColor: "blue",
+                rotation: -3,
+              }}
+              bottomNote={{
+                title: "Deepanshu",
+                description: "React & JavaScript Developer",
+                pinColor: "red",
+                rotation: 4,
+              }}
+              revealDirection="down"
             />
           </div>
         </div>

@@ -112,9 +112,9 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "float-slow": "float-slow 6s ease-in-out infinite",
-        "float-medium": "float-medium 5s ease-in-out infinite",
-        "float-fast": "float-fast 4s ease-in-out infinite",
+        "float-slow": "float-slow 8s cubic-bezier(0.4, 0, 0.2, 1) infinite",
+        "float-medium": "float-medium 7s cubic-bezier(0.4, 0, 0.2, 1) infinite",
+        "float-fast": "float-fast 6s cubic-bezier(0.4, 0, 0.2, 1) infinite",
         "sway": "sway 5s ease-in-out infinite",
         "pulse-glow": "pulse-glow 3s ease-in-out infinite",
         "draw-line": "draw-line 2s ease-out forwards",

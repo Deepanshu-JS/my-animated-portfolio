@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import ScrollReveal from '@/components/ScrollReveal';
 import { ExternalLink, Github, Eye } from 'lucide-react';
 
 interface Project {
@@ -104,14 +105,14 @@ const Projects = () => {
       
       <main className="relative z-10 container mx-auto px-4 pt-24 pb-16">
         {/* Header */}
-        <div className="text-center mb-16 animate-fade-in">
+        <ScrollReveal direction="up" className="text-center mb-16">
           <h1 className="font-marker text-4xl md:text-6xl text-foreground mb-4">
             My <span className="text-primary">Projects</span>
           </h1>
           <p className="font-handwritten text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
             A collection of my recent work in React, JavaScript, and Figma to Code conversions
           </p>
-        </div>
+        </ScrollReveal>
         
         {/* Category Filter */}
         <div className="flex flex-wrap justify-center gap-3 mb-12">
@@ -136,15 +137,14 @@ const Projects = () => {
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project, index) => (
-            <div
-              key={project.id}
-              className="group relative bg-muted/30 rounded-xl overflow-hidden border border-border/50
-                         hover:border-primary/50 transition-all duration-500 ease-out
-                         hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2"
-              style={{ animationDelay: `${index * 100}ms` }}
-              onMouseEnter={() => setHoveredProject(project.id)}
-              onMouseLeave={() => setHoveredProject(null)}
-            >
+            <ScrollReveal key={project.id} direction="up" delay={index * 0.1}>
+              <div
+                className="group relative bg-muted/30 rounded-xl overflow-hidden border border-border/50
+                           hover:border-primary/50 transition-all duration-300 ease-out
+                           hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2"
+                onMouseEnter={() => setHoveredProject(project.id)}
+                onMouseLeave={() => setHoveredProject(null)}
+              >
               {/* Image */}
               <div className="relative h-48 overflow-hidden">
                 <img 
@@ -206,7 +206,8 @@ const Projects = () => {
                   ))}
                 </div>
               </div>
-            </div>
+              </div>
+            </ScrollReveal>
           ))}
         </div>
         

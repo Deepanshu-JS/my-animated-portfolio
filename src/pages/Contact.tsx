@@ -4,6 +4,7 @@ import ContactForm from '@/components/ContactForm';
 import StickyNote from '@/components/StickyNote';
 import SocialLinks from '@/components/SocialLinks';
 import Footer from '@/components/Footer';
+import ScrollReveal from '@/components/ScrollReveal';
 
 const Contact = () => {
   return (
@@ -44,7 +45,7 @@ const Contact = () => {
         <div className="w-full max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
           
           {/* Left side - Info */}
-          <div className="animate-slide-in-left">
+          <ScrollReveal direction="left">
             <h1 className="font-marker text-4xl md:text-6xl text-foreground mb-6 leading-tight">
               Let's <span className="text-primary animate-text-glow">Work</span><br/>
               Together
@@ -103,10 +104,10 @@ const Contact = () => {
                 animationClass=""
               />
             </div>
-          </div>
+          </ScrollReveal>
           
           {/* Right side - Form */}
-          <div className="animate-slide-in-right">
+          <ScrollReveal direction="right" delay={0.2}>
             <div className="bg-muted/20 backdrop-blur-sm p-8 md:p-10 rounded-2xl border border-border/50
                           shadow-xl hover:shadow-2xl transition-shadow duration-500">
               <h2 className="font-marker text-2xl text-foreground mb-8">
@@ -114,7 +115,7 @@ const Contact = () => {
               </h2>
               <ContactForm />
             </div>
-          </div>
+          </ScrollReveal>
           
         </div>
       </main>

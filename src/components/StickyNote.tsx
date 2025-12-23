@@ -21,36 +21,40 @@ const StickyNote: React.FC<StickyNoteProps> = ({
 }) => {
   return (
     <div
-      className={`relative ${animationClass} ${className} transition-transform duration-300 ease-out hover:-translate-y-3 hover:scale-105 cursor-pointer`}
+      className={`relative ${animationClass} ${className}`}
       style={{ 
         transform: `rotate(${rotation}deg)`,
         animationDelay: delay,
       }}
     >
-      {/* Pushpin */}
-      <div
-        className={`absolute -top-3 left-1/2 -translate-x-1/2 w-5 h-5 rounded-full z-10 ${
-          pinColor === 'red' ? 'pushpin-red' : 'pushpin-blue'
-        }`}
-      />
-      
-      {/* String/Thread effect */}
-      <div 
-        className="absolute -top-8 left-1/2 w-px h-6 bg-gradient-to-b from-muted-foreground/50 to-transparent"
-        style={{ transform: 'translateX(-50%)' }}
-      />
-      
-      {/* Sticky note */}
-      <div className="sticky-note p-4 w-44 min-h-[100px] rounded-sm relative overflow-hidden">
-        {/* Folded corner effect */}
-        <div className="absolute bottom-0 right-0 w-6 h-6 bg-gradient-to-tl from-amber-500/30 to-transparent" />
+      {/* Hover wrapper */}
+      <div className="transition-transform duration-300 ease-out hover:-translate-y-4 hover:scale-105 cursor-pointer group">
+        {/* Pushpin */}
+        <div
+          className={`absolute -top-3 left-1/2 -translate-x-1/2 w-5 h-5 rounded-full z-10 ${
+            pinColor === 'red' ? 'pushpin-red' : 'pushpin-blue'
+          }`}
+        />
         
-        <h3 className="font-marker text-card-foreground text-sm mb-2 leading-tight">
-          {title}
-        </h3>
-        <p className="font-handwritten text-card-foreground/80 text-base leading-tight">
-          {description}
-        </p>
+        {/* String/Thread effect */}
+        <div 
+          className="absolute -top-8 left-1/2 w-px h-6 bg-gradient-to-b from-muted-foreground/50 to-transparent"
+          style={{ transform: 'translateX(-50%)' }}
+        />
+        
+        {/* Sticky note */}
+        <div className="sticky-note p-4 w-44 min-h-[100px] rounded-sm relative overflow-hidden 
+                        transition-shadow duration-300 group-hover:shadow-2xl group-hover:shadow-amber-500/20">
+          {/* Folded corner effect */}
+          <div className="absolute bottom-0 right-0 w-6 h-6 bg-gradient-to-tl from-amber-500/30 to-transparent" />
+          
+          <h3 className="font-marker text-card-foreground text-sm mb-2 leading-tight">
+            {title}
+          </h3>
+          <p className="font-handwritten text-card-foreground/80 text-base leading-tight">
+            {description}
+          </p>
+        </div>
       </div>
     </div>
   );

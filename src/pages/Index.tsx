@@ -57,7 +57,7 @@ const Index = () => {
         <div className="flex-1 flex items-center justify-center relative">
           
           {/* Left sticky notes */}
-          <div className="absolute left-0 md:left-8 top-1/4 z-20">
+          <div className="absolute left-0 md:left-8 top-[18%] md:top-1/4 z-10">
             <StickyNote
               title="React Expert"
               description="Building modern, performant web applications"
@@ -68,7 +68,7 @@ const Index = () => {
             />
           </div>
           
-          <div className="absolute left-4 md:left-16 bottom-1/4 z-20">
+          <div className="absolute left-6 md:left-16 top-[58%] md:bottom-1/4 z-0 md:z-10">
             <StickyNote
               title="JavaScript"
               description="ES6+, TypeScript, Node.js, APIs"

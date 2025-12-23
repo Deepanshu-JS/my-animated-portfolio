@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { forwardRef, memo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
 
-const Navigation = () => {
+const Navigation = forwardRef<HTMLElement>((_, ref) => {
   const location = useLocation();
   
   const links = [
@@ -13,11 +13,11 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-4 bg-background/80 backdrop-blur-md border-b border-border/20">
+    <nav ref={ref} className="fixed top-0 left-0 right-0 z-50 px-6 py-4 bg-background/80 backdrop-blur-md border-b border-border/20">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <Link 
           to="/" 
-          className="font-marker text-xl text-foreground hover:text-primary transition-colors duration-300"
+          className="font-marker text-xl text-foreground hover:text-primary transition-colors duration-200"
         >
           Deepanshu
         </Link>
@@ -30,15 +30,14 @@ const Navigation = () => {
                   to={to}
                   className={`
                     font-handwritten text-xl relative py-1
-                    transition-all duration-300
+                    transition-colors duration-200
                     ${location.pathname === to 
                       ? 'text-primary' 
                       : 'text-muted-foreground hover:text-foreground'
                     }
                     after:content-[''] after:absolute after:left-0 after:bottom-0
                     after:w-full after:h-0.5 after:bg-primary
-                    after:transform after:origin-left
-                    after:transition-transform after:duration-300
+                    after:origin-left after:transition-transform after:duration-200
                     ${location.pathname === to 
                       ? 'after:scale-x-100' 
                       : 'after:scale-x-0 hover:after:scale-x-100'
@@ -56,6 +55,8 @@ const Navigation = () => {
       </div>
     </nav>
   );
-};
+});
 
-export default Navigation;
+Navigation.displayName = 'Navigation';
+
+export default memo(Navigation);

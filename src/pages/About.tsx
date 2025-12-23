@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { forwardRef, memo, useMemo } from 'react';
 import Navigation from '@/components/Navigation';
 import StickyNote from '@/components/StickyNote';
 
-const About = () => {
+const About = forwardRef<HTMLDivElement>((_, ref) => {
   const skills = [
     { name: 'React.js', level: 85 },
     { name: 'JavaScript / TypeScript', level: 88 },
@@ -18,21 +18,20 @@ const About = () => {
       {/* Spotlight effect */}
       <div className="absolute inset-0 spotlight pointer-events-none" />
       
-      {/* Animated background particles */}
+      {/* Optimized background particles - reduced count */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {[...Array(12)].map((_, i) => (
+        {useMemo(() => [...Array(6)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-2 h-2 rounded-full bg-primary/20 animate-particle"
+            className="absolute w-1.5 h-1.5 rounded-full bg-primary/15 animate-particle will-change-transform"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${i * 0.5}s`,
-              animationDuration: `${8 + Math.random() * 4}s`,
+              left: `${15 + (i * 15)}%`,
+              top: `${10 + (i * 12)}%`,
+              animationDelay: `${i * 0.8}s`,
+              animationDuration: `${10 + i * 2}s`,
             }}
           />
-        ))}
-      </div>
+        )), [])}</div>
       
       <Navigation />
       
@@ -155,6 +154,8 @@ const About = () => {
       </main>
     </div>
   );
-};
+});
 
-export default About;
+About.displayName = 'About';
+
+export default memo(About);

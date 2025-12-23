@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef, memo } from 'react';
 
 interface StickyNoteProps {
   title: string;
@@ -10,7 +10,7 @@ interface StickyNoteProps {
   className?: string;
 }
 
-const StickyNote: React.FC<StickyNoteProps> = ({
+const StickyNote = forwardRef<HTMLDivElement, StickyNoteProps>(({
   title,
   description,
   pinColor = 'red',
@@ -18,17 +18,18 @@ const StickyNote: React.FC<StickyNoteProps> = ({
   animationClass = 'animate-float-slow',
   delay = '0s',
   className = '',
-}) => {
+}, ref) => {
   return (
     <div
-      className={`relative ${animationClass} ${className} z-20 hover:z-50 transition-all duration-300`}
+      ref={ref}
+      className={`relative ${animationClass} ${className} z-20 hover:z-50 will-change-transform`}
       style={{ 
         transform: `rotate(${rotation}deg)`,
         animationDelay: delay,
       }}
     >
       {/* Hover wrapper */}
-      <div className="transition-transform duration-300 ease-out hover:-translate-y-4 hover:scale-110 cursor-pointer group">
+      <div className="transition-transform duration-200 ease-out hover:-translate-y-3 hover:scale-105 cursor-pointer group">
         {/* Pushpin */}
         <div
           className={`absolute -top-3 left-1/2 -translate-x-1/2 w-5 h-5 rounded-full z-10 ${
@@ -38,15 +39,14 @@ const StickyNote: React.FC<StickyNoteProps> = ({
         
         {/* String/Thread effect */}
         <div 
-          className="absolute -top-8 left-1/2 w-px h-6 bg-gradient-to-b from-muted-foreground/50 to-transparent"
-          style={{ transform: 'translateX(-50%)' }}
+          className="absolute -top-8 left-1/2 w-px h-6 bg-gradient-to-b from-muted-foreground/50 to-transparent -translate-x-1/2"
         />
         
         {/* Sticky note */}
         <div className="sticky-note p-4 w-44 min-h-[100px] rounded-sm relative overflow-hidden 
-                        transition-shadow duration-300 group-hover:shadow-2xl group-hover:shadow-amber-500/20">
+                        transition-shadow duration-200 group-hover:shadow-xl group-hover:shadow-accent/10">
           {/* Folded corner effect */}
-          <div className="absolute bottom-0 right-0 w-6 h-6 bg-gradient-to-tl from-amber-500/30 to-transparent" />
+          <div className="absolute bottom-0 right-0 w-6 h-6 bg-gradient-to-tl from-accent/20 to-transparent" />
           
           <h3 className="font-marker text-card-foreground text-sm mb-2 leading-tight">
             {title}
@@ -58,6 +58,8 @@ const StickyNote: React.FC<StickyNoteProps> = ({
       </div>
     </div>
   );
-};
+});
 
-export default StickyNote;
+StickyNote.displayName = 'StickyNote';
+
+export default memo(StickyNote);

@@ -11,6 +11,7 @@ import Projects from "./pages/Projects";
 import NotFound from "./pages/NotFound";
 import MagicWand from "./components/MagicWand";
 import PageTransition from "./components/PageTransition";
+import CustomCursor from "./components/CustomCursor";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +36,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <CustomCursor />
       <MagicWand />
       <BrowserRouter>
         <AnimatedRoutes />

@@ -63,8 +63,7 @@ const Index = () => {
               description="Building modern, performant web applications"
               pinColor="red"
               rotation={-5}
-              animationClass="animate-float-medium"
-              delay="0.5s"
+              animationClass=""
             />
           </div>
           
@@ -74,8 +73,7 @@ const Index = () => {
               description="ES6+, TypeScript, Node.js, APIs"
               pinColor="red"
               rotation={3}
-              animationClass="animate-float-slow"
-              delay="1s"
+              animationClass=""
             />
           </div>
           
@@ -91,8 +89,7 @@ const Index = () => {
               description="React & JavaScript Developer"
               pinColor="red"
               rotation={4}
-              animationClass="animate-float-fast"
-              delay="0.2s"
+              animationClass=""
             />
           </div>
           
@@ -102,8 +99,7 @@ const Index = () => {
               description="Converting designs to pixel-perfect React components"
               pinColor="blue"
               rotation={-3}
-              animationClass="animate-float-medium"
-              delay="0.8s"
+              animationClass=""
             />
           </div>
         </div>

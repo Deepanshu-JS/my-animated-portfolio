@@ -21,14 +21,14 @@ const StickyNote: React.FC<StickyNoteProps> = ({
 }) => {
   return (
     <div
-      className={`relative ${animationClass} ${className}`}
+      className={`relative ${animationClass} ${className} z-20 hover:z-50 transition-all duration-300`}
       style={{ 
         transform: `rotate(${rotation}deg)`,
         animationDelay: delay,
       }}
     >
       {/* Hover wrapper */}
-      <div className="transition-transform duration-300 ease-out hover:-translate-y-4 hover:scale-105 cursor-pointer group">
+      <div className="transition-transform duration-300 ease-out hover:-translate-y-4 hover:scale-110 cursor-pointer group">
         {/* Pushpin */}
         <div
           className={`absolute -top-3 left-1/2 -translate-x-1/2 w-5 h-5 rounded-full z-10 ${

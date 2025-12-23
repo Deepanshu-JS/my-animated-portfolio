@@ -38,15 +38,15 @@ const Index = () => {
         {/* Top service labels */}
         <div className="flex justify-between items-start mb-8 md:mb-16">
           <ServiceLabel
-            title="Print Design"
-            items={['Magazines', 'books', 'covers', 'calendars', 'product boxes', 'Posm']}
+            title="React Development"
+            items={['Components', 'Hooks', 'State Management', 'Performance Optimization']}
             position="left"
             className="max-w-xs animate-float-slow"
           />
           
           <ServiceLabel
-            title="Communication Design"
-            items={['Design poster', 'banner', 'social media post', 'brochure', 'flyer', 'infographic...']}
+            title="JavaScript Development"
+            items={['ES6+', 'TypeScript', 'APIs', 'Node.js', 'Modern Frameworks']}
             position="right"
             className="max-w-xs animate-float-medium"
             
@@ -59,8 +59,8 @@ const Index = () => {
           {/* Left sticky notes */}
           <div className="absolute left-0 md:left-8 top-1/4 z-20">
             <StickyNote
-              title="Communication"
-              description="Design poster, banner, brochure, flyer, infographic..."
+              title="React Expert"
+              description="Building modern, performant web applications"
               pinColor="red"
               rotation={-5}
               animationClass="animate-float-medium"
@@ -70,8 +70,8 @@ const Index = () => {
           
           <div className="absolute left-4 md:left-16 bottom-1/4 z-20">
             <StickyNote
-              title="Print Design"
-              description="Magazines, books, covers, calendars, product boxes, Posm"
+              title="JavaScript"
+              description="ES6+, TypeScript, Node.js, APIs"
               pinColor="red"
               rotation={3}
               animationClass="animate-float-slow"
@@ -87,8 +87,8 @@ const Index = () => {
           {/* Right sticky notes */}
           <div className="absolute right-0 md:right-8 top-1/3 z-20">
             <StickyNote
-              title="Trần Đức Đạt"
-              description="Creative Designer"
+              title="Deepanshu"
+              description="React & JavaScript Developer"
               pinColor="red"
               rotation={4}
               animationClass="animate-float-fast"
@@ -98,8 +98,8 @@ const Index = () => {
           
           <div className="absolute right-4 md:right-16 bottom-1/3 z-20">
             <StickyNote
-              title="UX/UI Design"
-              description="Design app, website, landing page, UX wireframe."
+              title="Figma to Code"
+              description="Converting designs to pixel-perfect React components"
               pinColor="blue"
               rotation={-3}
               animationClass="animate-float-medium"
@@ -111,8 +111,8 @@ const Index = () => {
         {/* Bottom service labels */}
         <div className="flex justify-between items-end mt-8 md:mt-16">
           <ServiceLabel
-            title="UX/UI Design"
-            items={['Design app', 'website', 'landing page', 'UX wireframe']}
+            title="Figma to Code"
+            items={['Pixel-perfect', 'Responsive design', 'Component architecture']}
             position="left"
             className="max-w-xs animate-float-medium"
           />
@@ -139,7 +139,7 @@ const Index = () => {
               </h3>
             </div>
             <p className="font-handwritten text-muted-foreground text-base md:text-lg leading-relaxed italic">
-              I have been in this profession for 4 years
+              1-2 years of experience in React & JavaScript
             </p>
           </div>
         </div>

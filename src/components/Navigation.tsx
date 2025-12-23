@@ -18,7 +18,7 @@ const Navigation = () => {
           to="/" 
           className="font-marker text-xl text-foreground hover:text-primary transition-colors duration-300"
         >
-          TĐĐ
+          Deepanshu
         </Link>
         
         <div className="flex items-center gap-8">

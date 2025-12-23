@@ -2,6 +2,8 @@ import React from 'react';
 import Navigation from '@/components/Navigation';
 import ContactForm from '@/components/ContactForm';
 import StickyNote from '@/components/StickyNote';
+import SocialLinks from '@/components/SocialLinks';
+import Footer from '@/components/Footer';
 
 const Contact = () => {
   return (
@@ -85,8 +87,14 @@ const Contact = () => {
               </div>
             </div>
             
+            {/* Social Links Section */}
+            <div className="mt-10">
+              <h3 className="font-marker text-lg text-foreground mb-4">Follow Me</h3>
+              <SocialLinks size="md" />
+            </div>
+            
             {/* Floating sticky note */}
-            <div className="mt-10 animate-float-slow">
+            <div className="mt-8 animate-float-slow">
               <StickyNote
                 title="Let's Talk!"
                 description="I usually respond within 24 hours"
@@ -110,6 +118,8 @@ const Contact = () => {
           
         </div>
       </main>
+      
+      <Footer />
     </div>
   );
 };
